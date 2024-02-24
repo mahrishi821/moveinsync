@@ -1,0 +1,32 @@
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+
+
+username = "Mahrishi"
+password = "Student@123"
+
+chrome_options = Options()
+chrome_options.add_argument("--no-sandbox")  # Fixes issues with headless mode
+chrome_options.add_argument("--headless")  # Optional: run in headless mode to hide browser window
+
+
+driver_path = "D:\z\chromedriver-win64\chromedriver-win64\chromedriver.exe"
+
+driver = webdriver.Chrome(executable_path=driver_path, options=chrome_options)
+
+driver.get(url)
+
+
+username_field = driver.find_element_by_id("userName")
+username_field.send_keys(username)
+
+password_field = driver.find_element_by_id("password")
+password_field.send_keys(password)
+
+password_field.submit()
+
+
+# time.sleep(5)
+
+
+driver.quit()
